@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.film.demoproducer.constant.KafkaConstant.TEST_TOPIC;
+
 @RestController
 @RequestMapping("api/producers")
 @RequiredArgsConstructor
@@ -15,6 +17,6 @@ public class KafkaProducerController {
 
     @PostMapping("send")
     public void sendMessage(@RequestParam("message") String message) {
-        kafkaProducerService.sendMessage("test-topic", message);
+        kafkaProducerService.sendMessage(TEST_TOPIC, message);
     }
 }
